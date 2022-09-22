@@ -27,8 +27,10 @@ outputfolder.mkdir(exist_ok = True)
 
 print(inputfolder)
 
+# Image compression quality (70 appears to be the best), lower the value, lower the size and quality and vice versa
 quality = 70
 
+# Image compression function
 def compress_images(inputfile):
     # Open every image:
     img = Image.open(inputfile)
@@ -39,6 +41,7 @@ def compress_images(inputfile):
     # Compress every image and save it with a new name:
     img.save(outputfolder / filename, optimize=True, quality=quality)
 
+# Using the multithreading module
 if __name__ == '__main__':
     filelst = []
 
